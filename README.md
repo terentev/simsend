@@ -2,4 +2,4 @@
 
 SIM800
 
-Create config excample run PrintProperties.main()
+Create config example run PrintProperties.main()
