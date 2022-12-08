@@ -2,4 +2,4 @@
 
 SIM800
 
-Create config example run PrintProperties.main()
+Create config simsend.json example run PrintProperties.main()

@@ -1,2 +1,2 @@
 #!/bin/sh
-java -Xmx100m  -Dconfiguration.file.path="simsend.json" -jar /home/evg/project/temp/simsend/target/simsend-1.0-SNAPSHOT.jar
+java -Xmx100m  -Dconfiguration.file.path="../simsend-app/simsend.json" -jar target/simsend-1.0-SNAPSHOT.jar
