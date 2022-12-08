@@ -2,6 +2,7 @@
 
 SIM800 java
 
+Send sms to email
 
 Create config simsend.json example run PrintProperties.main()
 
