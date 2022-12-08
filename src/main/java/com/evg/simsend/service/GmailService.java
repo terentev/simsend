@@ -66,12 +66,12 @@ public class GmailService {
         return credential;
     }
 
-    public static Message createMessage(String toEmailAddress, String messageSubject, String bodyText)
+    public Message createMessage(String toEmailAddress, String messageSubject, String bodyText)
             throws MessagingException, IOException {
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
-        email.setFrom(new InternetAddress("katelasmod@gmail.com"));
+        email.setFrom(new InternetAddress(configuration.global.emailFrom));
         email.addRecipient(javax.mail.Message.RecipientType.TO,
                 new InternetAddress(toEmailAddress));
         email.setSubject(messageSubject);

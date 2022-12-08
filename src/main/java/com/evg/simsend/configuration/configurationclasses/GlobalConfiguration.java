@@ -8,6 +8,7 @@ import java.util.List;
 
 public class GlobalConfiguration {
     public String email = "test@test.com";
+    public String emailFrom = "test@test.com";
     public String phoneForSendSmsNoBlock = "+79991111111";
     public List<SimCard> simCards = new ArrayList<>();
 
