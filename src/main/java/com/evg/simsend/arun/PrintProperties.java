@@ -4,9 +4,7 @@ import com.evg.simsend.configuration.ConfigurationProperties;
 import com.evg.simsend.configuration.ConfigurationPropertiesToPropertiesConverter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.commons.io.FileUtils;
 
-import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
@@ -25,7 +23,8 @@ public class PrintProperties {
         StringWriter sw = new StringWriter();
         convert.list(new PrintWriter(sw));
         sw.flush();
-        System.out.println(sw.toString());
-        FileUtils.writeStringToFile(new File("/home/evg/configuration.json"), s, "UTF-8");
+        System.out.println(sw);
+        System.out.println(s);
+      //  FileUtils.writeStringToFile(new File("/home/evg/configuration.json"), s, "UTF-8");
     }
 }
