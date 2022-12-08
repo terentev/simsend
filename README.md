@@ -1,2 +1,1 @@
 # simsend
-SIM800

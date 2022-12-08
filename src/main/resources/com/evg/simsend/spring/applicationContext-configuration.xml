@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+  <import resource="applicationContext-util.xml"/>
+
+  <bean id="configurationService" class="com.evg.simsend.configuration.ConfigurationService"
+        destroy-method="close"/>
+  <bean id="configuration" factory-bean="configurationService" factory-method="getConfiguration"/>
+  <bean id="converter" class="com.evg.simsend.configuration.ConfigurationPropertiesToPropertiesConverter">
+    <property name="gson" ref="gson"/>
+    <property name="prefix" value="configuration"/>
+  </bean>
+  <bean id="localPropertiesFactory" class="com.evg.simsend.configuration.LocalPropertiesFactory">
+    <property name="configurationService" ref="configurationService"/>
+    <property name="converter" ref="converter"/>
+  </bean>
+  <bean id="localProperties" factory-bean="localPropertiesFactory" factory-method="create"/>
+
+  <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+    <property name="properties" value="localProperties"/>
+  </bean>
+</beans>

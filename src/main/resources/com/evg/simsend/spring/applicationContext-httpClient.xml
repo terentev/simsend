@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+  <bean id="connectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager"
+        destroy-method="shutdown">
+    <property name="maxTotal" value="3000"/>
+  </bean>
+  <bean id="httpClientFactory" class="com.evg.simsend.service.HttpClientFactory">
+    <property name="connectionManager" ref="connectionManager"/>
+  </bean>
+  <bean id="httpClient" factory-bean="httpClientFactory" factory-method="create"/>
+</beans>

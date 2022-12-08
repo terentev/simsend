@@ -1,0 +1,2 @@
+#!/bin/sh
+java -Xmx100m -jar /home/evg/project/temp/simsend/target/simsend-1.0-SNAPSHOT.jar
