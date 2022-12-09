@@ -42,10 +42,10 @@ public class SimService {
     public void start() {
         for (SimCard a : configuration.getConfiguration().global.simCards)
             map.put(a.ccid, new SimData(a));
-        se.scheduleWithFixedDelay(RNT.g(this::addNewPorts), 0, 30, TimeUnit.SECONDS);
+        se.scheduleWithFixedDelay(RNT.g(this::addNewPorts), 0, 1, TimeUnit.MINUTES);
         se.scheduleWithFixedDelay(RLNT.g(this::sendSmsToEmailPeriod, lock), 0, 1, TimeUnit.MINUTES);
-        se.scheduleWithFixedDelay(RLNT.g(this::sendSmsForNoBlock, lock), 0, 30, TimeUnit.SECONDS);
-        se.scheduleWithFixedDelay(RLNT.g(this::sendCusdBalance, lock), 0, 30, TimeUnit.SECONDS);
+        se.scheduleWithFixedDelay(RLNT.g(this::sendSmsForNoBlock, lock), 45, 45, TimeUnit.DAYS);
+        se.scheduleWithFixedDelay(RLNT.g(this::sendCusdBalance, lock), 0, 1, TimeUnit.DAYS);
     }
 
     private void addNewPorts() {
