@@ -73,7 +73,6 @@ public class SimEvent {
         private final Consumer<String> run;
 
         public ConsumerNoThrow(Consumer<String> run) {
-            checkState(run != null);
             this.run = run;
         }
 
