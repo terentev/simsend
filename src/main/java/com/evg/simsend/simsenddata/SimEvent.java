@@ -25,7 +25,7 @@ public class SimEvent {
     public SimEvent(String start, Consumer<String> run) {
         checkState(!start.substring(1).contains(start.substring(0, 1)));
         this.cmp = start.getBytes();
-        this.run = new ConsumerNoThrow(run);
+        this.run = run == null ? null : new ConsumerNoThrow(run);
     }
 
     public void add(byte b) {
@@ -72,6 +72,7 @@ public class SimEvent {
         private final Consumer<String> run;
 
         public ConsumerNoThrow(Consumer<String> run) {
+            checkState(run != null);
             this.run = run;
         }
 
