@@ -5,6 +5,7 @@ import gnu.trove.list.array.TByteArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
 import static com.google.api.client.util.Preconditions.checkState;
@@ -16,13 +17,14 @@ public class SimEvent {
 
     private final static int MAX_EVENT_BUF_SIZE = 2048;
     private final byte[] cmp;
+    @Nullable
     private final Consumer<String> run;
     private final TByteList data = new TByteArrayList();
     private boolean start;
     private int index = 0;
     private boolean fill = false;
 
-    public SimEvent(String start, Consumer<String> run) {
+    public SimEvent(String start, @Nullable Consumer<String> run) {
         checkState(!start.substring(1).contains(start.substring(0, 1)));
         this.cmp = start.getBytes();
         this.run = run == null ? null : new ConsumerNoThrow(run);
