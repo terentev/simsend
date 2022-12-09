@@ -76,9 +76,9 @@ public class SimEvent {
         }
 
         @Override
-        public void accept(String s) {
+        public void accept(String str) {
             try {
-
+                run.accept(str);
             } catch (Throwable t) {
                 log.error("", t);
             }
