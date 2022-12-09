@@ -15,11 +15,11 @@ public class SimEvent {
     private final static Logger log = LoggerFactory.getLogger(SerialReadThread.class);
 
     private final static int MAX_EVENT_BUF_SIZE = 2048;
+    private final byte[] cmp;
+    private final Consumer<String> run;
+    private final TByteList data = new TByteArrayList();
     private boolean start;
     private int index = 0;
-    private final byte[] cmp;
-    private Consumer<String> run;
-    private TByteList data = new TByteArrayList();
     private boolean fill = false;
 
     public SimEvent(String start, Consumer<String> run) {
