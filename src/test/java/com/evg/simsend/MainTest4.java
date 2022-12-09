@@ -14,7 +14,7 @@ public class MainTest4 {
         String s = "04110430043B0430043D0441003A00310039002C003800340440";
 
         byte[] bytes = DatatypeConverter.parseHexBinary(s);
-      //  byte[] bytes = BaseEncoding.base16().decode(s);;
+
         p(decodeUCS2(bytes));
     }
 
