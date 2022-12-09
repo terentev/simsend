@@ -58,8 +58,7 @@ public class SimEvent {
             fill = false;
             byte[] r = data.toArray();
             data.clear();
-            if (run != null)
-                run.accept(new String(r));
+            run.accept(new String(r));
             return;
         }
         if (data.size() > MAX_EVENT_BUF_SIZE) {
