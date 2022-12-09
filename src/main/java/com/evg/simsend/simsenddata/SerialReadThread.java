@@ -11,7 +11,7 @@ import java.util.function.Consumer;
 import static com.google.common.base.Preconditions.checkState;
 
 public class SerialReadThread {
-    private final Logger log = LoggerFactory.getLogger(SerialReadThread.class);
+    private final static Logger log = LoggerFactory.getLogger(SerialReadThread.class);
     private volatile boolean close;
     private SerialPort port;
     private Thread thread;

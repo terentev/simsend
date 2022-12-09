@@ -2,6 +2,8 @@ package com.evg.simsend.simsenddata;
 
 import gnu.trove.list.TByteList;
 import gnu.trove.list.array.TByteArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.function.Consumer;
 
@@ -10,6 +12,8 @@ import static com.google.api.client.util.Preconditions.checkState;
 //+CUSD: 0, "04110430043B0430043D0441003A00310039002C003800340440", 72
 //+CMTI: "SM",1
 public class SimEvent {
+    private final static Logger log = LoggerFactory.getLogger(SerialReadThread.class);
+
     private final static int MAX_EVENT_BUF_SIZE = 2048;
     private boolean start;
     private int index = 0;
@@ -21,7 +25,7 @@ public class SimEvent {
     public SimEvent(String start, Consumer<String> run) {
         checkState(!start.substring(1).contains(start.substring(0, 1)));
         this.cmp = start.getBytes();
-        this.run = run;
+        this.run = new ConsumerNoThrow(run);
     }
 
     public void add(byte b) {
@@ -62,5 +66,22 @@ public class SimEvent {
             throw new RuntimeException("buffer to long");
         }
         data.add(b);
+    }
+
+    private static class ConsumerNoThrow implements Consumer<String> {
+        private final Consumer<String> run;
+
+        public ConsumerNoThrow(Consumer<String> run) {
+            this.run = run;
+        }
+
+        @Override
+        public void accept(String s) {
+            try {
+
+            } catch (Throwable t) {
+                log.error("", t);
+            }
+        }
     }
 }
