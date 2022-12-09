@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class RLNT implements Runnable {
-    private final Logger log = LoggerFactory.getLogger(RLNT.class);
+    private final static Logger log = LoggerFactory.getLogger(RLNT.class);
 
     private final Runnable run;
     private final Object lock;

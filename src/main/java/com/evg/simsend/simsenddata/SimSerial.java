@@ -18,7 +18,7 @@ import static com.fazecast.jSerialComm.SerialPort.TIMEOUT_WRITE_BLOCKING;
 import static com.google.common.base.Preconditions.checkState;
 
 public class SimSerial {
-    private final Logger log = LoggerFactory.getLogger(SimSerial.class);
+    private final static Logger log = LoggerFactory.getLogger(SimSerial.class);
 
     private String ccid;
     private final SerialReadThread rt;

@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 public class ConfigurationService extends SingletonChecker {
-    private final Logger log = LoggerFactory.getLogger(ConfigurationService.class);
+    private final static Logger log = LoggerFactory.getLogger(ConfigurationService.class);
     private final static String CONFIGURATION_FILE_PATH_PROPERTY = "configuration.file.path";
     private final static Gson gson = new Gson();
 

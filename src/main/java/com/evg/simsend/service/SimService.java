@@ -25,7 +25,7 @@ import java.util.concurrent.TimeoutException;
 
 @Component
 public class SimService {
-    private final Logger log = LoggerFactory.getLogger(SimService.class);
+    private final static Logger log = LoggerFactory.getLogger(SimService.class);
 
     @Autowired
     private GmailService gmail;
