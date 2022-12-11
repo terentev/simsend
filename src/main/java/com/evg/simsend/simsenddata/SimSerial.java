@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nullable;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
@@ -24,8 +25,8 @@ public class SimSerial {
     private final SerialReadThread rt;
     private final SerialPort port;
     private final Buffer buffer = new Buffer();
-    private final CopyOnWriteArraySet<Consumer<String>> cusdSet = new CopyOnWriteArraySet<>();
-    private final CopyOnWriteArraySet<Consumer<String>> smsSet = new CopyOnWriteArraySet<>();
+    private final Set<Consumer<String>> cusdSet = new CopyOnWriteArraySet<>();
+    private final Set<Consumer<String>> smsSet = new CopyOnWriteArraySet<>();
 
     public SimSerial(SerialPort port0) {
         port = port0;

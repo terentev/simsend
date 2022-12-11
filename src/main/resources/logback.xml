@@ -1,4 +1,4 @@
-<configuration debug="true" scan="true">
+<configuration scan="true">
   <define name="unnecessary" class="com.evg.simsend.configuration.LogbackPropertiesConfigurer"/>
 
   <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
